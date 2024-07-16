@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Portfolio</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+	<script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/css/style.css">
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script><script  src="/static/./script.js"></script>
+</head>
+<body>
+
+<div class="row justify-content-center back p-0 m-0 h-auto container-fluid long ">
+	<div class="col-12 col-lg-11 p-3 m-2 m-md-5">
+		<div class="row mt-md-5">
+			<div class="col-12 col-md-1 text-center mt-3 mt-md-5 sidebar ">
+                <div class="card border-0 shadow">
+                 	<div class="offcanvas offcanvas-start p-3" id="demo">
+                        <div class="offcanvas-header">
+							<h2 class="fw-bold ms-2"><span class="green">S</span>ummary</h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                        </div>
+                        <div class="offcanvas-body text-start">
+                            <ul class="list-inline ps-2">
+                        	    <li><h4><span class="green">Recent</span> Posts</h4></li>
+								{% for SocialmediaPost in recentpost %}
+                        	    <li><p class="border-center-bottom py-1"><a href="#{{ SocialmediaPost.Socialmedia_Post_id }}"class="text-decoration-none text-black">{{SocialmediaPost.Socialmedia_Post_title}}</a></p></li>
+								{% endfor%}
+                            </ul>
+							<ul class="list-inline mt-5 mb-3">
+								<li><h4><span class="green">Recent</span> Website</h4></li>
+								<li>
+									<p class="border-center-bottom py-1">
+										<a href="#web_development" class="text-decoration-none text-black">
+											{{ recentwebsite.Web_Development_title }}
+										</a>
+									</p>
+								</li>
+							</ul>
+							
+							<ul class="list-unstyled  mt-5 mb-3">
+								<li><h4><span class="green">C</span>ategories</h4></li>
+								{% for serviceoffer in servicedata %}
+								<li>
+									<p class="border-center-bottom py-1">
+										<a href="#{{ serviceoffer.services_title|slugify }}" class="text-decoration-none text-black">{{ serviceoffer.services_title }}</a>
+									</p>
+								</li>
+								{% endfor %}
+							</ul>
+                        </div>
+                    </div>
+
+                    <div>
+						<button class="text-black btn btn-white bg-white border-0 offcanvas-toggle " type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">
+							<i class="fa fa-bars p-2 fs-3"></i>
+						</button>
+                    </div>
+				</div>
+				<div class="card border-0 mt-2 px-2 shadow bar">
+					<ul class="list-inline d-flex flex-wrap justify-content-center barin ">
+						<li class="border-center-bottom py-3 px-2 mb-2 mb-md-0">
+							<a href="#about" class="text-black text-decoration-none d-block text-center">
+								<span><i class="fa fa-user-o fs-5"></i></span>
+								<p class="mb-0 size">ABOUT</p>
+							</a>
+						</li>
+						<li class="border-center-bottom py-3 px-2  mb-2 mb-md-0">
+							<a href="#resume" class="text-black text-decoration-none d-block text-center">
+								<span><i class="fa fa-list-alt fs-5"></i></span>
+								<p class="mb-0 size">RESUME</p>
+							</a>
+						</li>
+						<li class="border-center-bottom py-3 px-2 mb-2 mb-md-0">
+							<a href="#work" class="text-black text-decoration-none d-block text-center">
+								<span><i class="fa fa-object-ungroup fs-5"></i></span>
+								<p class="mb-0 size">WORKS</p>
+							</a>
+						</li>
+						<li class="border-center-bottom py-3 px-2 mb-2 mb-md-0">
+							<a href="#contact" class="text-black text-decoration-none d-block text-center">
+								<span><i class="fa fa-envelope-o fs-5"></i></span>
+								<p class="mb-0 size">CONTACT</p>
+							</a>
+						</li>
+					</ul>
+				</div>
+				
+		    </div>
+		    <div class="col-12 col-md-4 pe-0 mt-3 mt-md-0 dpage">
+			    <div class="card border-0 shadow">
+			        <div class="row">
+						{% for info in personalinfodata %}
+				        <div class="col-12">
+					        <img src="/media/{{info.personal_img}}" class="img-fluid form-control border-0 p-0">
+				        </div>
+				        <div class="col-12 text-center pt-3">
+					        <h5>{{info.personal_name}}</h5>
+					    <div class="word green h-5 chight"></div>
+						{% endfor %}
+				    </div>
+				    <div class="col-12 text-center mt-4">
+                        <ul class="list-inline pb-4">
+							{% for infolink in personal_linksdata %}
+						    <li class="list-inline-item mx-2"><a href="{{infolink.personal_links_link}}" class="text-black"><i class="fa fa-{{infolink.personal_links_logo}}"></i></a></li>
+							{% endfor %}
+                        </ul>
+					    <div class="row justify-content-center px-3 mb-3 border-center-p dcv">
+						    <div class="col-6 text-center p-3 border-center-top">
+					            <p class="mb-0"><a href="{% url 'download_cv' %}"class="text-decoration-none text-black">DOWNLOAD CV</a></p>
+				            </div>
+				            <div class="col-6 text-center p-3 border-center-top">
+					            <p class="mb-0"><a href="#contact"class="text-decoration-none text-black">CONTACT ME</a></p>
+				            </div>
+					    </div>
+				    </div>
+			    </div>
+			</div>
+		</div>
+		
+		<div class="col-12 col-md-8 col-lg-7  ps-0 bg-white rounded-end mt-3 p-3  ps-4 length2 overflow-auto shadow">
+			<!--about-->
+			<section id="about">
+				<h3 class="mb-4 fw-bold"><span class="green">ABOUT</span> ME</h3>
+					<div class="row border-center-top">
+						{% for bio in biodata %}
+						<div class="col-12 col-md-5 pt-3">
+							<p>{{bio.Bio}}</p>
+						</div>
+						{% endfor %}
+						<div class="col-12 col-md-7 pt-3">
+							{% for info in infodata %}
+							<table class="table table-borderless">
+								<tr>
+									<td><h6 class="mb-0"><span class="badge green2">Age . . . . .</span></h6></td>
+									<td class="text-end">{{info.Age}}</td>
+								</tr>
+								<tr>
+									<td><h6 class="mb-0"><span class="badge green2">Residence . . . . .</span></h6></td>
+									<td class="text-end">{{info.Residence}}</td>
+								</tr>
+								<tr>
+									<td><h6 class="mb-0"><span class="badge green2">Freelance . . . . .</span></h6></td>
+									<td class="text-end">{{info.Freelance}}</td>
+								</tr>
+								<tr>
+									<td><h6 class="mb-0"><span class="badge green2">Address . . . . .</span></h6></td>
+									<td class="text-end">{{info.Address}}</td>
+								</tr>
+							</table>
+							{% endfor %}
+						</div>
+					</div>
+                     
+					<!-- Services -->
+                    <h3 class="mb-3 fw-bold"><span class="green">My</span> Services</h3>
+                    <div class="row border-center-s mt-3">
+                        {% for serviceoffer in servicedata %}
+                        <div class="col-12 col-md-6 text-center p-3 py-3 border-center-top" id="{{ serviceoffer.services_title|slugify }}">
+                            <i class="fa fa-{{ serviceoffer.services_logo }} fs-4 green2 text-white rounded-circle p-3 "></i>
+                            <h5>{{ serviceoffer.services_title }}</h5>
+                            <p class="mb-0">{{ serviceoffer.services_description }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+					
+                    <!--Pricing-->
+					<h3 class="my-4 fw-bold"><span class="green">P</span>ricing</h3>
+					<div class="row border-center-p">
+						{% for plan in pricedata %}
+						<div class="col-12 col-md-6 text-center p-4 border-center-top">
+							<i class="fa fa-{{ plan.plan_logo }} fs-4 green"></i>
+							<p>{{ plan.plan_name }}</p>
+							<p>&#8377<span class="fs-4 fw-bold">{{ plan.price }}</span> per Anum</p>
+					
+							<ul class="list-inline pb-2 border-center-bottom">
+								{% for service in plan.services_list %}
+									<li class="my-2">
+										{% if '##' in service or '~~' in service %}
+											{% with service_new=service|cut:"##" %}
+												{% if '~~' in service_new %}
+													<del class="text-muted">{{ service_new|slice:"'~~':"|cut:"~~" }}</del>
+												{% else %}
+													{{ service_new }}
+												{% endif %}
+												{% if '##' in service %}
+													<span class="badge green2">new</span>
+												{% endif %}
+											{% endwith %}
+										{% else %}
+											{{ service }}
+										{% endif %}
+									</li>
+								{% endfor %}
+							</ul>
+							
+							
+							<a href="#contactform" class="text-decoration-none text-black my-3">{{ plan.purchase}}<i class="fa fa-chevron-right ps-2"></i></a>
+						</div>
+					{% endfor %}					
+				    </div>				
+			</section>
+			<!--about end-->
+
+			<!--resume-->
+			<section id="resume">
+				<h3 class="my-4 fw-bold"><span class="green">R</span>esume</h3>
+				    <div class="row">
+					    <div class="col-12 col-md-6">
+						    <h5 class="my-3"><i class="fa fa-university green pe-2"></i><span>EDUCATION</span></h5>							
+				            <ul class="list-inline">
+								{% for resume in resumedata %}
+					            <li class="border-center-top pt-3"><p class="badge bg-white text-black border">{{resume.Passing_Year}}</p>
+					            	<h6>{{resume.School_or_University_name}}</h6>
+					            	<p>{{resume.Degree_or_Diploma_name}}</p>
+								</li>
+								{% endfor %}
+				            </ul>							
+					    </div>
+				    </div>
+				    <h3 class="my-4 fw-bold"><span class="green">M</span>y Skills</h3>
+				        <div class="row border-center-s">
+					        <div class="col-12 col-md-6 border-center-top p-4">
+						        <h5><i class="fa fa-paint-brush green pe-2 fs-4"></i>DESIGN</h5>
+						        <ul class="list-inline pt-2">
+									{% for design in Designdata %}
+							        <li class="my-4">{{design.Design_name}}
+							            <div class="progress mt-2" style="height: 5px;">
+                                            <div class="progress-bar green2" role="progressbar" style="width:{{design.Design_Knowledge_percentage}}"></div>
+                                        </div>
+                                    </li>
+									{% endfor %}
+						        </ul>
+					        </div>
+					        <div class="col-12 col-md-6 border-center-top p-4">
+						        <h5><i class="fa fa-flag green pe-2 fs-4"></i>LANGUAGES</h5>
+						        <ul class="list-inline pt-2">
+									{% for language in Languagedata %}
+							        <li class="my-4">{{language.Language_name}}
+							            <div class="progress mt-2" style="height: 5px;">
+                                            <div class="progress-bar green2" role="progressbar" style="width:{{language.Languages_Knowledge_percentage}}"></div>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+						        </ul>
+					        </div>
+					        <div class="col-12 col-md-6 border-center-top p-4 mt-4">
+						        <h5><i class="fa fa-code green pe-2 fs-4"></i>CODING</h5>
+						        <ul class="list-inline pt-2">
+									{% for coding in Codingdata %}
+									<li class="my-4">
+							            <div class="progress p-90 mt-2" style="height: 5px;">
+                                            <div class="progress-bar green2" role="progressbar" style="width:{{coding.Coding_Knowledge_percentage}}"></div>
+                                        </div>
+                                        {{coding.Coding_name}}
+                                    </li>
+									{% endfor %}
+						        </ul>
+					        </div>
+					        <div class="col-12 col-md-6 border-center-top p-4 mt-4">
+						        <h5><i class="fa fa-list green pe-2 fs-4"></i>KNOWLEDGE</h5>								
+						        <ul class="list-inline pt-2">
+									{% for Knowledge in AllKnowledgedata %}
+									<li class="my-3"><i class="fa fa-check green pe-1"></i>{{Knowledge.Knowledge_name}}</li>
+									{% endfor %}
+						        </ul>								
+					        </div>
+				        </div>				
+			</section>
+			<!--resume end-->
+
+			<!--work-->
+			<section id="work">
+				<div class="row">
+					<div class="col-12 col-md-4">
+						<h3 class="my-4 fw-bold"><span class="green">O</span>ur Works</h3>
+					</div>
+					<div class="col-12 col-md-8">
+						<ul class="list-inline my-4 text-center text-md-end">
+							<li class="list-inline-item mx-2"><a href="#all" class="text-black text-decoration-none" onclick="filterSelection('all')">All</a></li>
+							<li class="list-inline-item mx-2"><a href="#banner" class="text-black text-decoration-none" onclick="filterSelection('banner')">Banner</a></li>
+							<li class="list-inline-item mx-2"><a href="#Post" class="text-black text-decoration-none" onclick="filterSelection('post')">Post</a></li>
+							<li class="list-inline-item mx-2"><a href="#Manipulation" class="text-black text-decoration-none" onclick="filterSelection('manipulation')">Manipulation</a></li>
+							<li class="list-inline-item mx-2"><a href="#web_development" class="text-black text-decoration-none" onclick="filterSelection('web_development')">Websites</a></li>
+						</ul>
+					</div>
+				</div>
+				<section id="all">
+					<!--Post-->
+					<section id="Post">
+						<div class="row mt-2">
+							{% for Socialmedia_Post in Socialmedia_Postdata %}														
+							<div class="column post col-12 col-sm-6 col-md-4 mb-4" id="{{Socialmedia_Post.Socialmedia_Post_id}}">
+                                <a href="https://www.behance.net/chiragchhonkar"><img src="/media/{{Socialmedia_Post.Socialmedia_Post_img}}" class="img-fluid rounded-3 shadow"></a>
+                                <i><p class="fw-bold fs-6 mt-1">{{Socialmedia_Post.Socialmedia_Post_title}}</p></i>               
+							</div>	
+							{% endfor %}						 							
+				        </div>
+					</section>
+					<!--Post end-->
+					<!--banner-->
+					<section id="banner">
+						<div class="row mt-3 mt-2">	
+							{% for Banner in Bannerdata %}						
+							<div class="column banner col-12 col-sm-6 col-md-4 mb-4">
+                                <a href="https://www.behance.net/chiragchhonkar" class="btn border-0 p-0"><img src="/media/{{Banner.Banner_img}}" class="img-fluid rounded-3 shadow"></a>
+                                <i><p class="fw-bold fs-6 mt-1">{{Banner.Banner_title}}</p></i>
+					        </div>
+							{% endfor %}
+				        </div>
+					</section>
+					<!--banner end-->
+					<!--manipulation-->
+					<section id="Manipulation">
+						<div class="row mt-3">		
+							{% for Manipulation in Manipulationdata %}					
+							<div class="column manipulation col-12 col-sm-6 col-md-4 mb-4">
+                                <a href="https://www.behance.net/chiragchhonkar" class="btn border-0 p-0"><img src="/media/{{Manipulation.Manipulation_img}}" class="img-fluid rounded-3 shadow"></a>
+                                <i><p class="fw-bold fs-6 mt-1">{{Manipulation.Manipulation_title}}</p></i>								
+						    </div>	
+							{% endfor %}
+				        </div>
+					</section>
+					<!--manipulation end-->
+					<!--Web_Development-->
+					<section id="web_development">
+						<div class="row mt-4">		
+							{% for Web_Development in Web_Developmentdata %}					
+							<div class="column web_development col-12 col-sm-6 col-md-4 mb-4">
+                                <a href="{{Web_Development.Web_Development_Link}}" class="btn border-0 p-0"><img src="/media/{{Web_Development.Web_Development_img}}" class="img-fluid rounded-3 shadow"></a>
+                                <i><p class="fw-bold fs-6 mt-1">{{Web_Development.Web_Development_title}}</p></i>								
+						    </div>
+							{% endfor %}
+				        </div>
+					</section>
+					<!--Web_Development end-->
+				</section>
+			</section>	
+			<!--work end-->
+
+			<!--contact-->
+			<section id="contact">
+				<h3 class="my-4 fw-bold"><span class="green">G</span>et in Touch</h3>
+				<div class="row">
+					{% for contactdetail in contactdetailsdata %}
+					<div class="col-12">
+						<iframe src="{{contactdetail.map}}" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="form-control length3 p-0"></iframe>
+					</div>
+					<div class="col-12 col-sm-6 mt-3">
+						<div class="row">
+							<div class="col-sm-6">
+								<h5 class="badge green2">Address . . . . .</h5>
+							</div>
+							<div class="col-sm-6">
+								<p>{{contactdetail.Address}}</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-sm-6 mt-3">
+						<div class="row">
+							<div class="col-sm-4">
+								<h5 class="badge green2">Email . . . . .</h5>
+							</div>
+							<div class="col-sm-8">
+								<p>{{contactdetail.Email}}</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-sm-6 mt-3">
+						<div class="row">
+							<div class="col-sm-6">
+								<h5 class="badge green2">Phone . . . . .</h5>
+							</div>
+							<div class="col-sm-6">
+								<p>+91 {{contactdetail.Phone_num}}</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-sm-6 mt-3">
+						<div class="row">
+							<div class="col-sm-6">
+								<h5 class="badge green2">Freelance . . . . .</h5>
+							</div>
+							<div class="col-sm-6">
+								<p>{{contactdetail.Freelance}}</p>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+				<h3 class="my-4 fw-bold"><span class="green">C</span>ontact Form</h3>
+				<form method="POST" action="{% url 'contactform' %}" id="contactform">
+					{% csrf_token %}
+				    <div class="row">					
+					    <div class="col-12 col-md-6 mb-3">
+						    <div class="form-floating">
+								{{form1.name}}
+                                <label for="name">Full Name</label>
+                            </div>
+					    </div>
+						<div class="col-12 col-md-6 mb-3">
+						    <div class="form-floating">
+								{{form1.email}}
+                                <label for="email">Email Address</label>
+                            </div>
+					    </div>
+					    <div class="col-12 mb-3">
+						    <div class="form-floating">
+                                {{form1.message}}
+                                <label for="comment">Your Message</label>
+                            </div>
+					    </div>
+					</div>	
+					<button class="button mt-4 bg-secondary text-white text-center"><span>SEND MESSAGE</span></button>
+				</form> 				
+			</section>
+			<!--contact end-->
+		</div>
+	</div>
+</div>	
+</div>
+
+
+
+</body>
+</html>
+
+
+<!--work align-->
+<script>
+    filterSelection("all") // Execute the function and show all columns
+    function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("column");
+        if (c == "all") c = "";
+        // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+        for (i = 0; i < x.length; i++) {
+        w3RemoveClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+    }
+
+    // Show filtered elements
+    function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {
+                element.className += " " + arr2[i];
+            }
+        }
+    }
+
+    // Hide elements that are not selected
+    function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+    }
+
+    // Add active class to the current button (highlight it)
+        var btnContainer = document.getElementById("myBtnContainer");
+        var btns = btnContainer.getElementsByClassName("btn");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function(){
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+</script>
+<!--work align end-->
+
+<!--text animation-->
+<script>
+	var words = ['WEB DEVELOPER','GRAPHIC DESIGNER','FREELANCER',],
+    part,
+    i = 0,
+    offset = 0,
+    len = words.length,
+    forwards = true,
+    skip_count = 0,
+    skip_delay = 15,
+    speed = 70;
+    var wordflick = function () {
+        setInterval(function () {
+            if (forwards) {
+                if (offset >= words[i].length) {
+                    ++skip_count;
+                if (skip_count == skip_delay) {
+            forwards = false;
+          skip_count = 0;
+        }
+      }
+    }
+    else {
+      if (offset == 0) {
+        forwards = true;
+        i++;
+        offset = 0;
+        if (i >= len) {
+          i = 0;
+        }
+      }
+    }
+        part = words[i].substr(0, offset);
+            if (skip_count == 0) {
+                if (forwards) {
+                    offset++;
+                }
+                else {
+                    offset--;
+                }
+            }
+            $('.word').text(part);
+            },speed);
+        };
+
+    $(document).ready(function () {
+        wordflick();
+    });
+</script>
+<!--text animation end-->
+
+<!-- autocomplete -->
+<script>
+	function autocomplete(inp, arr) {
+	  /*the autocomplete function takes two arguments,
+	  the text field element and an array of possible autocompleted values:*/
+	  var currentFocus;
+	  /*execute a function when someone writes in the text field:*/
+	  inp.addEventListener("input", function(e) {
+		  var a, b, i, val = this.value;
+		  /*close any already open lists of autocompleted values*/
+		  closeAllLists();
+		  if (!val) { return false;}
+		  currentFocus = -1;
+		  /*create a DIV element that will contain the items (values):*/
+		  a = document.createElement("DIV");
+		  a.setAttribute("id", this.id + "autocomplete-list");
+		  a.setAttribute("class", "autocomplete-items");
+		  /*append the DIV element as a child of the autocomplete container:*/
+		  this.parentNode.appendChild(a);
+		  /*for each item in the array...*/
+		  for (i = 0; i < arr.length; i++) {
+			/*check if the item starts with the same letters as the text field value:*/
+			if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+			  /*create a DIV element for each matching element:*/
+			  b = document.createElement("DIV");
+			  /*make the matching letters bold:*/
+			  b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+			  b.innerHTML += arr[i].substr(val.length);
+			  /*insert a input field that will hold the current array item's value:*/
+			  b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+			  /*execute a function when someone clicks on the item value (DIV element):*/
+			  b.addEventListener("click", function(e) {
+				  /*insert the value for the autocomplete text field:*/
+				  inp.value = this.getElementsByTagName("input")[0].value;
+				  /*close the list of autocompleted values,
+				  (or any other open lists of autocompleted values:*/
+				  closeAllLists();
+			  });
+			  a.appendChild(b);
+			}
+		  }
+	  });
+	  /*execute a function presses a key on the keyboard:*/
+	  inp.addEventListener("keydown", function(e) {
+		  var x = document.getElementById(this.id + "autocomplete-list");
+		  if (x) x = x.getElementsByTagName("div");
+		  if (e.keyCode == 40) {
+			/*If the arrow DOWN key is pressed,
+			increase the currentFocus variable:*/
+			currentFocus++;
+			/*and and make the current item more visible:*/
+			addActive(x);
+		  } else if (e.keyCode == 38) { //up
+			/*If the arrow UP key is pressed,
+			decrease the currentFocus variable:*/
+			currentFocus--;
+			/*and and make the current item more visible:*/
+			addActive(x);
+		  } else if (e.keyCode == 13) {
+			/*If the ENTER key is pressed, prevent the form from being submitted,*/
+			e.preventDefault();
+			if (currentFocus > -1) {
+			  /*and simulate a click on the "active" item:*/
+			  if (x) x[currentFocus].click();
+			}
+		  }
+	  });
+	  function addActive(x) {
+		/*a function to classify an item as "active":*/
+		if (!x) return false;
+		/*start by removing the "active" class on all items:*/
+		removeActive(x);
+		if (currentFocus >= x.length) currentFocus = 0;
+		if (currentFocus < 0) currentFocus = (x.length - 1);
+		/*add class "autocomplete-active":*/
+		x[currentFocus].classList.add("autocomplete-active");
+	  }
+	  function removeActive(x) {
+		/*a function to remove the "active" class from all autocomplete items:*/
+		for (var i = 0; i < x.length; i++) {
+		  x[i].classList.remove("autocomplete-active");
+		}
+	  }
+	  function closeAllLists(elmnt) {
+		/*close all autocomplete lists in the document,
+		except the one passed as an argument:*/
+		var x = document.getElementsByClassName("autocomplete-items");
+		for (var i = 0; i < x.length; i++) {
+		  if (elmnt != x[i] && elmnt != inp) {
+			x[i].parentNode.removeChild(x[i]);
+		  }
+		}
+	  }
+	  /*execute a function when someone clicks in the document:*/
+	  document.addEventListener("click", function (e) {
+		  closeAllLists(e.target);
+	  });
+	}
+	
+	/*An array containing all the country names in the world:*/
+	var work= ["Bakery Banner","Land","Vacation/Short-term Rentals","Residential","Plot","Apartment",""];
+	
+	/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+	autocomplete(document.getElementById("myInput"), work);
+</script>
+<!-- autocomplete end-->
