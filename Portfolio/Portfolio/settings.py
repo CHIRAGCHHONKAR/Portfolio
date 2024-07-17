@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-22f3gy!zn!fxn7@m42&lgbn_^t3ye1f@94*1n_ee)3yxl+4@3r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'Portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfolio',           # The name of your PostgreSQL database
-        'USER': 'portfolio_User',         # The PostgreSQL username
-        'PASSWORD': 'password', # The password for the PostgreSQL user
-        'HOST': 'localhost',              # Or the address of your PostgreSQL server
+        'NAME': 'postgres',           # The name of your PostgreSQL database
+        'USER': 'postgres.xdutavmylwcmtdntrvon',         # The PostgreSQL username
+        'PASSWORD': 'Portfolio7112003886', # The password for the PostgreSQL user
+        'HOST': 'aws-0-ap-south-1.pooler.supabase.com',              # Or the address of your PostgreSQL server
         'PORT': '5432',                   # The port your PostgreSQL server is running on
         'OPTIONS': {
             'connect_timeout': 20,}  # Adjust the timeout value as needed
