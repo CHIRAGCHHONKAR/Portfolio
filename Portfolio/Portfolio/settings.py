@@ -87,10 +87,10 @@ WSGI_APPLICATION = 'Portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',           # The name of your PostgreSQL database
-        'USER': 'postgres.xdutavmylwcmtdntrvon',         # The PostgreSQL username
-        'PASSWORD': 'Portfolio7112003886', # The password for the PostgreSQL user
-        'HOST': 'aws-0-ap-south-1.pooler.supabase.com',              # Or the address of your PostgreSQL server
+        'NAME': 'db_name',           # The name of your PostgreSQL database
+        'USER': 'db_username',         # The PostgreSQL username
+        'PASSWORD': 'password', # The password for the PostgreSQL user
+        'HOST': 'db_host',              # Or the address of your PostgreSQL server
         'PORT': '5432',                   # The port your PostgreSQL server is running on
         'OPTIONS': {
             'connect_timeout': 20,}  # Adjust the timeout value as needed
