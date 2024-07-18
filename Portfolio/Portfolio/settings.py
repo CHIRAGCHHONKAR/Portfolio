@@ -41,14 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Portfolio.project.apps.ProjectConfig',
-    'Portfolio.contactform',
-    'Portfolio.Aboutme',
-    'Portfolio.Services',
-    'Portfolio.pricing',
-    'Portfolio.Resume',
-    'Portfolio.MySkills',
-    'Portfolio.GetinTouch',
-    'Portfolio.personalinfo',
+    'Portfolio.contactform.apps.ContactformConfig',
+    'Portfolio.Aboutme.apps.AboutmeConfig',
+    'Portfolio.Services.apps.ServicesConfig',
+    'Portfolio.pricing.apps.PricingConfig',
+    'Portfolio.Resume.apps.ResumeConfig',
+    'Portfolio.MySkills.apps.MyskillsConfig',
+    'Portfolio.GetinTouch.apps.GetintouchConfig',
+    'Portfolio.personalinfo.apps.PersonalinfoConfig',
 ]
 
 MIDDLEWARE = [
