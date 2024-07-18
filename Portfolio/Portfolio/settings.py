@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-22f3gy!zn!fxn7@m42&lgbn_^t3ye1f@94*1n_ee)3yxl+4@3r'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-22f3gy!zn!fxn7@m42&lgbn_^t3ye1f@94*1n_ee)3yxl+4@3r')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 
 # Application definition
@@ -84,18 +85,21 @@ WSGI_APPLICATION = 'Portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',           # The name of your PostgreSQL database
-        'USER': 'postgres.xdutavmylwcmtdntrvon',         # The PostgreSQL username
-        'PASSWORD': 'Portfolio7112003886', # The password for the PostgreSQL user
-        'HOST': 'aws-0-ap-south-1.pooler.supabase.com',              # Or the address of your PostgreSQL server
-        'PORT': '5432',                   # The port your PostgreSQL server is running on
+        'NAME': os.environ.get('DB_NAME', 'postgres'),
+        'USER': os.environ.get('DB_USER', 'postgres.xdutavmylwcmtdntrvon'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'Portfolio7112003886'),
+        'HOST': os.environ.get('DB_HOST', 'aws-0-ap-south-1.pooler.supabase.com'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
         'OPTIONS': {
-            'connect_timeout': 20,}  # Adjust the timeout value as needed
+            'connect_timeout': 20,
+        }
     }
 }
+
 
 
 # Password validation
@@ -132,30 +136,23 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
  
-import os 
- 
 STATIC_URL = 'static/'
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
-STATICFILES_DIRS=[
-    BASE_DIR/"static"
-]
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# email sending 
+# email setting
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587  # Use the appropriate port for your SMTP provider
-EMAIL_USE_TLS = True  # Use TLS for security
-EMAIL_HOST_USER = 'chhonkarchirag886@gmail.com'
-EMAIL_HOST_PASSWORD = 'wxvyrsyvzuozhxik'
+EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')
+EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
+EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'chhonkarchirag886@gmail.com')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'wxvyrsyvzuozhxik')
 
