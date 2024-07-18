@@ -1,5 +1,5 @@
 from django.contrib import admin
-from personalinfo.models import *
+from Portfolio.personalinfo.models import *
 
 class personalinfo_admin(admin.ModelAdmin):
     list_display=['personal_name','personal_img']

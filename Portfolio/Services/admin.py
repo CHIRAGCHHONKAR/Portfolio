@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Services.models import *
+from Portfolio.Services.models import *
 
 class service_admin(admin.ModelAdmin):
     list_display=['service_id','services_title','services_description','services_logo']

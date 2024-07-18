@@ -1,5 +1,5 @@
 from django.contrib import admin
-from contactform.models import *
+from Portfolio.contactform.models import *
 
 class Contactformadmin(admin.ModelAdmin):
     list_display=['name','email','message']
