@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Portfolio.GetinTouch.models import *
+from GetinTouch.models import *
 
 class contactdetailsadmin(admin.ModelAdmin):
     list_display=['Address','Email','Phone_num','Freelance','map']

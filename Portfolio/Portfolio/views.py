@@ -1,17 +1,17 @@
 from django.shortcuts import redirect,render
 from django.http import FileResponse, HttpResponse
 from django.conf import settings
-from Portfolio.contactform.models import *
-from Portfolio.Portfolio.forms import *
+from contactform.models import *
+from Portfolio.forms import *
 from django.core.mail import send_mail
-from Portfolio.project.models import *
-from Portfolio.Aboutme.models import *
-from Portfolio.Services.models import *
-from Portfolio.pricing.models import *
-from Portfolio.Resume.models import *
-from Portfolio.MySkills.models import *
-from Portfolio.GetinTouch.models import *
-from Portfolio.personalinfo.models import *
+from project.models import *
+from Aboutme.models import *
+from Services.models import *
+from pricing.models import *
+from Resume.models import *
+from MySkills.models import *
+from GetinTouch.models import *
+from personalinfo.models import *
 import os
 
 

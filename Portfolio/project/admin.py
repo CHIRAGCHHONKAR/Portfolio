@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Portfolio.project.models import *
+from project.models import *
 
 
 class Banner_admin(admin.ModelAdmin):

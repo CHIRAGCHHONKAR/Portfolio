@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-22f3gy!zn!fxn7@m42&lgbn_^t3ye1f@94*1n_ee)3yxl+4@3r')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = 'True'
 
-ALLOWED_HOSTS = ['chiragcodeworks.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['localhost']
 
 # Application definition
 
@@ -39,15 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Portfolio.project.apps.ProjectConfig',
-    'Portfolio.contactform.apps.ContactformConfig',
-    'Portfolio.Aboutme.apps.AboutmeConfig',
-    'Portfolio.Services.apps.ServicesConfig',
-    'Portfolio.pricing.apps.PricingConfig',
-    'Portfolio.Resume.apps.ResumeConfig',
-    'Portfolio.MySkills.apps.MyskillsConfig',
-    'Portfolio.GetinTouch.apps.GetintouchConfig',
-    'Portfolio.personalinfo.apps.PersonalinfoConfig',
+    'project',
+    'contactform',
+    'Aboutme',
+    'Services',
+    'pricing',
+    'Resume',
+    'MySkills',
+    'GetinTouch',
+    'personalinfo',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Portfolio.Portfolio.urls'
+ROOT_URLCONF = 'Portfolio.urls'
 
 TEMPLATES = [
     {
@@ -73,13 +73,12 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'Portfolio.Portfolio.context_processors.brand_name'
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'Portfolio.Portfolio.wsgi.application'
+WSGI_APPLICATION = 'Portfolio.wsgi.application'
 
 
 # Database

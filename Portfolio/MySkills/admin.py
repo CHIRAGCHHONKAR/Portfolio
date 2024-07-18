@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Portfolio.MySkills.models import *
+from MySkills.models import *
 
 class Designadmin(admin.ModelAdmin):
     list_display=['Design_name','Design_Knowledge_percentage']

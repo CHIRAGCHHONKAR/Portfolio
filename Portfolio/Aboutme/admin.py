@@ -1,5 +1,5 @@
 from django.contrib import admin
-from Portfolio.Aboutme.models import *
+from Aboutme.models import *
 
 class bioadmin(admin.ModelAdmin):
     list_display=['Bio']
