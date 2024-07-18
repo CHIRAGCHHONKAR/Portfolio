@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Portfolio.project',
+    'Portfolio.project.apps.ProjectConfig',
     'Portfolio.contactform',
     'Portfolio.Aboutme',
     'Portfolio.Services',
