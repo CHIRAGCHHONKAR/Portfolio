@@ -89,8 +89,8 @@ def contactform(request):
             # Sending email to staff
             subject = "New Contact Enquiry"
             email_content = f"Name: {name}\nEmail: {email}\nMessage: {message}"
-            from_email = "example@gmail.com"
-            recipient_list = ["example@gmail.com"]
+            from_email = "chhonkarchirag886@gmail.com"
+            recipient_list = ["chhonkarchirag886@gmail.com"]
             
             try:
                 send_mail(subject, email_content, from_email, recipient_list,)
