@@ -10,10 +10,6 @@
 .grey{background:#eeeeee;}
 .grey2{color:rgb(153, 153, 153);}
 .chight{height: 24px;}
-.badge.green2 {
-  background-color: #28a745;
-  color: white;
-}
 
 ::-webkit-scrollbar{width: 8px;}
 ::-webkit-scrollbar-track{background: #fff;
