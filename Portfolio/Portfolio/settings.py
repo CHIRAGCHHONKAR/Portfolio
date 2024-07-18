@@ -26,8 +26,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-22f3gy!zn!fxn7@m42&lg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('https://chiragcodeworks.onrender.com/', 'localhost,127.0.0.1').split(',')
-
+ALLOWED_HOSTS = ['chiragcodeworks.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
