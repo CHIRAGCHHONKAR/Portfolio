@@ -2,7 +2,7 @@
 
 .green{color:rgb(120, 204, 109)}
 .size{font-size: 13px;}
-.back{background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);}
+.back{background-image: linear-gradient(to right, #43e97b 0%, #38f9d7);}
 .length{height: 387px;}
 .length2{height:502px;}
 .green2{background:rgb(120, 204, 109)}
@@ -341,16 +341,17 @@
 }
 }
 
-@media only screen and (min-width: 481px) and (max-width: 768px) {
+@media only screen and (min-width: 481px) and (max-width: 767.9px) {
   .offcanvas-toggle {
     position: fixed;
     top: 0px;
-    right: 0px;
+    right: 30px;
     z-index: 1030;
     text-align: center;
     height: 70px;
     border-radius: 0px;
-    padding: 35px 60px 73px 30px;
+    padding: 35px 0px 0px 0px !important;
+    
   }
   .bar{
     position: fixed;
@@ -362,8 +363,13 @@
     margin-top: 0px !important;
     border-radius: 0px;
     padding: 17px 0px 0px 99px;
+    width: 100%;
   }
 
+  .barin{
+    justify-content: left !important;
+    padding: 0px 0px 0px 28px;
+  }
  
   .border-center-s::after {
     display: none;
@@ -384,8 +390,7 @@
     height: auto; /* No need for !important if properly targeted */
 }
   .length2 {
-   
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 7px 0px 7px 0px;
   }
 
   .dcv{
@@ -398,6 +403,7 @@
 
   .dpage{
     padding: 0px !important;
+    margin-top: 100px!important;
   }
 
   .long{
@@ -435,11 +441,31 @@
 
   .length2 {
     height: 380px !important;
-    border-radius: 0px 10px 10px 0px;
+    border-radius: 0px 7px 7px 0px;
+  }
+  .dcv{
+    font-size: 12px;
   }
 
 }
 
+@media only screen and (min-width: 1025px) and (max-width: 1380px) {
 
+  .sidebar{padding: 0px;}
+  .length2 {
+    height: 430px !important;
+    border-radius: 0px 7px 7px 0px;
+  }
+}
+
+@media only screen and (min-width: 1381px) and (max-width: 1438.9px){
+
+  .length2 {
+    height: 482px !important;
+    border-radius: 0px 7px 7px 0px;
+  }
+
+  
+}
 
 
