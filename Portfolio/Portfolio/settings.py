@@ -12,23 +12,22 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
+# # Quick-start development settings - unsuitable for production
+# # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-22f3gy!zn!fxn7@m42&lgbn_^t3ye1f@94*1n_ee)3yxl+4@3r')
+# # SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY =('django-insecure-22f3gy!zn!fxn7@m42&lgbn_^t3ye1f@94*1n_ee)3yxl+4@3r')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('False') =='True'
+# # SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = 'True'
 
 ALLOWED_HOSTS = ['localhost']
 
-
-# Application definition
+# # Application definition
 
 INSTALLED_APPS = [
     'adminlte3',
@@ -65,7 +64,7 @@ ROOT_URLCONF = 'Portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR,"template"],
+        'DIRS': [BASE_DIR, "template"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,17 +80,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Portfolio.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+# # Database
+# # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME', 'postgres'),
-        'USER': os.environ.get('DB_USER', 'postgres.xdutavmylwcmtdntrvon'),
-        'PASSWORD': os.environ.get('DB_PASSWORD', 'Portfolio7112003886'),
-        'HOST': os.environ.get('DB_HOST', 'aws-0-ap-south-1.pooler.supabase.com'),
-        'PORT': os.environ.get('DB_PORT', '5432'),
+        'NAME':'postgres',
+        'USER':'postgres.xdutavmylwcmtdntrvon',
+        'PASSWORD':'Portfolio7112003886',
+        'HOST':'aws-0-ap-south-1.pooler.supabase.com',
+        'PORT':'5432',
         'OPTIONS': {
             'connect_timeout': 20,
         }
@@ -99,8 +98,8 @@ DATABASES = {
 }
 
 
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
+# # Password validation
+# # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -118,8 +117,8 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
+# # Internationalization
+# # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -145,10 +144,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# # email setting
+# email setting
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = os.environ.get('EMAIL_HOST', 'smtp.gmail.com')
-EMAIL_PORT = int(os.environ.get('EMAIL_PORT', 587))
-EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS', 'True') == 'True'
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'chhonkarchirag886@gmail.com')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'wxvyrsyvzuozhxik')
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS =  'True'
+EMAIL_HOST_USER = 'chhonkarchirag886@gmail.com'
+EMAIL_HOST_PASSWORD = 'wxvyrsyvzuozhxik'
