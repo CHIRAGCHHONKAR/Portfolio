@@ -39,17 +39,6 @@ def homepage(request):
     personal_linksdata=personal_links.objects.all()
     
     
-    if request.method == "GET":
-        search=request.GET.get("search")
-        
-        if search != None:
-             # Perform filtering based on category and location
-            Bannerdata = property.objects.filter(Property_search__icontains=Banner)
-            Socialmedia_Postdata = property.objects.filter(Property_search__icontains=search)
-            Manipulationdata = property.objects.filter(Property_search__icontains=search)
-            Web_Developmentdata = property.objects.filter(Property_search__icontains=search)
-            return render(request, "searchresult.html", {'Bannerdata': Bannerdata})
-    
     context={
         'form1':form1,
         'Bannerdata':Bannerdata,
