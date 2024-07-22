@@ -86,10 +86,10 @@ WSGI_APPLICATION = 'Portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'postgres',
-        'USER':'postgres.xdutavmylwcmtdntrvon',
-        'PASSWORD':'Portfoliodata7112003',
-        'HOST':'aws-0-ap-south-1.pooler.supabase.com',
+        'NAME':'db_name',
+        'USER':'db_user',
+        'PASSWORD':'db_password',
+        'HOST':'db_host',
         'PORT':'5432',
         'OPTIONS': {
             'connect_timeout': 20,
@@ -149,5 +149,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS =  'True'
-EMAIL_HOST_USER = 'chhonkarchirag886@gmail.com'
-EMAIL_HOST_PASSWORD = 'wxvyrsyvzuozhxik'
+EMAIL_HOST_USER = 'example@gmail.com'
+EMAIL_HOST_PASSWORD = ''
